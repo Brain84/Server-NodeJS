@@ -72,5 +72,5 @@ app.get('/json', (req, res) => {
 
 // Load any another string eg. 'xyz' localhost:3000/xyz in a browser to see 'Page Not found 404'
 app.get('*', (req, res) => {
-  res.send('<h1>Page Not found 404</h1>', 404);
+  res.send('<h1>Page Not Found 404</h1>', 404);
 });
