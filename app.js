@@ -25,11 +25,11 @@ app.get('/search', (req, res) => {
 
 // Load http://localhost:3000/logo in a browser to see a photo
 app.get('/logo', (req, res) => {
-	const fileName = 'logo.jpg';
+  const fileName = 'logo.jpg';
 
-	res.sendFile(fileName, {
-		root: path.join(__dirname, 'public/images'),
-	});
+  res.sendFile(fileName, {
+    root: path.join(__dirname, 'public/images'),
+  });
 });
 
 // Load http://localhost:3000/user/logout in a browser to clear cookie
@@ -40,34 +40,34 @@ app.get('/user/logout', (req, res) => {
 
 // Instead ':name' you can use any string eg. 'Paul'. Load http://localhost:3000/user/Paul in a browser to create cookie (name of cookie is Paul)
 app.get('/user/:name', (req, res) => {
-	const { name } = req.params;
-	const dt = new Date();
+  const { name } = req.params;
+  const dt = new Date();
 
-	dt.setDate(dt.getDate() + 30); // expires of cookie in 30 days
+  dt.setDate(dt.getDate() + 30); // expires of cookie in 30 days
 
-	res.cookie('visitor_name', name, {
-		expires: dt, 
-	});
+  res.cookie('visitor_name', name, {
+    expires: dt, 
+  });
 
-	res.send('Name of visitor is in cookie');
+  res.send('Name of visitor is in cookie');
 });
 
 // Load http://localhost:3000/json in a browser to see a 'pageUsers' in format json
 app.get('/json', (req, res) => {
-	const pageUsers = [
-		{
-			id: 1,
-			name: 'Peter',
-			age: 25,
-		},
-		{
-			id: 2,
-			name: 'Kate',
-			age: 31,
-		},
-	];
+  const pageUsers = [
+    {
+      id: 1,
+      name: 'Peter',
+      age: 25,
+    },
+    {
+      id: 2,
+      name: 'Kate',
+      age: 31,
+    },
+  ];
 
-	res.json(pageUsers);
+  res.json(pageUsers);
 });
 
 // Load any another string eg. 'xyz' localhost:3000/xyz in a browser to see 'Page Not found 404'
